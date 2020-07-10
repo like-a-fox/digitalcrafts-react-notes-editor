@@ -1,1 +1,1 @@
-export { default as NoteList } from './NoteList';
+export { Notes, NotesReducer } from './Notes';

@@ -1,12 +1,12 @@
 import React from 'react';
 import { makeApp } from './_app';
-import { NoteList } from '../views';
+import { Notes } from '../views';
 import { Switch, Route } from 'react-router';
 
 const AppRouteSwitch = () => {
 	return (
 		<Switch>
-			<Route path='/' exact component={NoteList} />
+			<Route path='/' exact component={Notes} />
 			{/* <Route path='/:noteId' exact component={NoteView} /> */}
 		</Switch>
 	);
