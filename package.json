@@ -1,34 +1,90 @@
 {
-  "name": "digitalcrafts-react-notes-editor",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "digitalcrafts-react-notes-editor",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@material-ui/core": "^4.11.0",
+		"@material-ui/icons": "^4.9.1",
+		"@reduxjs/toolkit": "^1.1.0",
+		"connected-react-router": "^6.8.0",
+		"history": "^5.0.0",
+		"marked": "^1.1.0",
+		"prop-types": "^15.7.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-redux": "^7.1.3",
+		"react-router": "^5.2.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "3.4.1"
+	},
+	"devDependencies": {
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.2",
+		"@testing-library/user-event": "^7.1.2",
+		"eslint-plugin-filenames": "^1.3.2",
+		"eslint-plugin-import": "^2.20.2",
+		"eslint-plugin-react": "^7.19.0",
+		"eslint-plugin-react-hooks": "^3.0.0",
+		"husky": "^4.2.3",
+		"lint-staged": "^10.1.2",
+		"prettier": "^2.0.4"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"lint": "eslint \"src/**/*.{js,jsx,json,md}\"",
+		"lint:fix": "eslint \"src/**/*.{js,jsx,json,md}\" --fix",
+		"format": "prettier \"**/*.{js,jsx,json,md}\"",
+		"format:fix": "prettier --write \"**/*.{js,jsx,json,md}\""
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn format:fix && yarn lint:fix && git add .",
+			"lint-staged": "yarn lint:fix",
+			"pre-push": "yarn build"
+		}
+	},
+	"prettier": {
+		"singleQuote": true,
+		"useTabs": true,
+		"jsxSingleQuote": true,
+		"endOfLine": "lf",
+		"semi": true,
+		"jsxBracketSameLine": true,
+		"arrowParens": "always",
+		"trailingComma": "es5"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"eslint:recommended",
+			"plugin:react/recommended",
+			"plugin:import/errors",
+			"plugin:import/warnings"
+		],
+		"plugins": [
+			"react-hooks",
+			"import"
+		],
+		"rules": {
+			"react-hooks/rules-of-hooks": "error",
+			"react-hooks/exhaustive-deps": "warn",
+			"react/prop-types": "error",
+			"no-mixed-spaces-and-tabs": "off"
+		}
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
