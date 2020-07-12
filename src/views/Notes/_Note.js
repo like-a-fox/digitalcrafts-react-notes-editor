@@ -32,7 +32,7 @@ export const Note = (props) => {
 			<TextField
 				variant={'filled'}
 				fullWidth
-				defaultValue={title}
+				value={title}
 				placeholder={'Note Title'}
 				name={'title'}
 				label={'Note Title'}
@@ -52,7 +52,7 @@ export const Note = (props) => {
 				}}
 				variant={'filled'}
 				onChange={handleChangeNote}
-				defaultValue={previewMarkdown ? marked(content) : content}
+				value={previewMarkdown ? marked(content) : content}
 				placeholder={'Write your content here'}
 				name={'content'}
 				label={'Note Content'}

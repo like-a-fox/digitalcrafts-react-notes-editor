@@ -4,8 +4,8 @@ const createCursor = () => Math.random().toString(36).substr(2, 9);
 
 let emptyNote = () => ({
 	cursor: createCursor(),
-	title: 'New Note Title',
-	content: 'New Note Content',
+	title: '',
+	content: '',
 });
 
 const noteIndex = (notes, cursor) =>
@@ -34,8 +34,8 @@ const NoteSlice = createSlice({
 			state.activeNote = newNote;
 		},
 		selectExistingNote: (state, action) => {
-			if (noteIndex(state.notes, action.payload) !== -1) {
-				state.activeNote = state.notes[noteIndex(state.notes, action.payload)];
+			if (action.payload && action.payload.cursor) {
+				state.activeNote = action.payload;
 			}
 		},
 		deleteNote: (state, action) => {
@@ -56,6 +56,9 @@ const NoteSlice = createSlice({
 				if (note[name] !== value) {
 					state.notes[index][name] = value;
 				}
+			}
+			if (cursor === state.activeNote.cursor) {
+				state.activeNote[name] = value;
 			}
 		},
 	},

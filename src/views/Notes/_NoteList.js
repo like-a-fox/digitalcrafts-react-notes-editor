@@ -24,8 +24,8 @@ const NoteListItem = (props) => {
 	const noteSelected = useSelector((state) => getIsSelected(state, props));
 	const dispatch = useDispatch();
 	const onSelectNote = React.useCallback(
-		() => dispatch(selectExistingNote(cursor)),
-		[cursor, dispatch]
+		() => dispatch(selectExistingNote({ cursor, title, content })),
+		[cursor, title, content, dispatch]
 	);
 	if (!cursor) {
 		return null;
@@ -33,7 +33,10 @@ const NoteListItem = (props) => {
 
 	return (
 		<ListItem selected={noteSelected} button onClick={onSelectNote}>
-			<ListItemText primary={title} secondary={content} />
+			<ListItemText
+				primary={title || 'New Note Title'}
+				secondary={content || 'New Note Content'}
+			/>
 		</ListItem>
 	);
 };
