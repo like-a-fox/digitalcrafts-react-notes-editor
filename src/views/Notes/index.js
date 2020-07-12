@@ -1,3 +1,5 @@
-import React from 'react';
-export const Notes = React.lazy(() => import('./_NoteList'));
-export { NotesReducer } from './_NoteSlice';
+import { NoteList } from './_NoteList';
+
+export { NotesReducer, createNewNote } from './_NoteSlice';
+
+export default NoteList;
