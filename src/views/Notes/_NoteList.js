@@ -53,6 +53,9 @@ const useListStyles = makeStyles((theme) => ({
 		display: 'flex',
 		flexDirection: 'row',
 		backgroundColor: theme.palette.primary.light,
+		[theme.breakpoints.down('sm')]: {
+			flexDirection: 'column',
+		},
 	},
 	list: {
 		minHeight: '-webkit-fill-available',
@@ -125,14 +128,12 @@ export const NoteList = () => {
 
 	return (
 		<Paper className={classes.root}>
-			<List className={classes.list}>
-				<ListItem divider>
-					<SearchField
-						searchString={searchString}
-						handleChange={handleChange}
-						handleEnter={handleEnter}
-					/>
-				</ListItem>
+			<List disablePadding className={classes.list}>
+				<SearchField
+					searchString={searchString}
+					handleChange={handleChange}
+					handleEnter={handleEnter}
+				/>
 				<ListItem divider button onClick={handleCreateNote}>
 					<ListItemText primary={'Add New Note...'} />
 				</ListItem>

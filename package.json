@@ -44,7 +44,7 @@
 		"hooks": {
 			"pre-commit": "yarn format:fix && yarn lint:fix && git add .",
 			"lint-staged": "yarn lint:fix",
-			"pre-push": "yarn build"
+			"pre-push": "yarn build && yarn now"
 		}
 	},
 	"prettier": {

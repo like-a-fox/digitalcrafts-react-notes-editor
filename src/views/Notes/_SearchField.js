@@ -23,7 +23,6 @@ export const SearchField = (props) => {
 			label={'Search Notes'}
 			value={searchString}
 			variant={'filled'}
-			margin={'normal'}
 			fullWidth
 			InputLabelProps={{
 				shrink: true,
